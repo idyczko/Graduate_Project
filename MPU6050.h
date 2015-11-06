@@ -122,7 +122,7 @@
 #define MPU6050_RA_FIFO_R_W 0x74
 #define MPU6050_RA_WHO_AM_I 0x75
 
-signed int ACCEL_XOUT;
+ signed int ACCEL_XOUT;
  signed int ACCEL_YOUT;
  signed int ACCEL_ZOUT;
 
@@ -136,7 +136,7 @@ signed int ACCEL_XOUT;
 void MPU_self_test(unsigned char);
 void MPU_read_adress(unsigned char, unsigned char, unsigned char*);
 void MPU_write_adress(unsigned char, unsigned char, unsigned char);
-void Setup_MPU6050(unsigned char);
+void Setup_MPU6050(unsigned char, unsigned char);
 void Get_Accel_Values(unsigned char);
 
 

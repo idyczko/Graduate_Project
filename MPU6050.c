@@ -71,7 +71,7 @@ void Get_Accel_Values(unsigned char MPU6050_ADDRESS)
 	ACCEL_ZOUT = ((ACCEL_ZOUT_H<<8)|ACCEL_ZOUT_L);
 }
 	
-	void Setup_MPU6050(unsigned char MPU6050_ADDRESS)
+void Setup_MPU6050(unsigned char MPU6050_ADDRESS, unsigned char SCALE)
 	{
 		//Sets sample rate to 8000/1+7 = 1000Hz
 		MPU_write_adress(MPU6050_ADDRESS, MPU6050_RA_SMPLRT_DIV, 0x07);
@@ -80,7 +80,7 @@ void Get_Accel_Values(unsigned char MPU6050_ADDRESS)
 		//Disable gyro self tests, scale of 500 degrees/s
 		MPU_write_adress(MPU6050_ADDRESS, MPU6050_RA_GYRO_CONFIG, 0b00001000);
 		//Disable accel self tests, scale of +-2g, no DHPF
-		MPU_write_adress(MPU6050_ADDRESS, MPU6050_RA_ACCEL_CONFIG, 0x00);
+		MPU_write_adress(MPU6050_ADDRESS, MPU6050_RA_ACCEL_CONFIG, SCALE);
 		//Freefall threshold of |0mg|
 		MPU_write_adress(MPU6050_ADDRESS, MPU6050_RA_FF_THR, 0x00);
 		//Freefall duration limit of 0

@@ -55,7 +55,7 @@ void TWI_write_data(unsigned char data)
 void TWI_stop(void)
 {
 	TWCR= (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
-	_delay_us(100);
+	_delay_us(10);
 }
 
 void TWI_check_ack(unsigned char adress){
